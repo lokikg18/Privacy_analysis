@@ -82,3 +82,6 @@ mkdocstrings>=0.29.1
 # Environment and Configuration
 python-dotenv>=1.0.0
 pyyaml>=6.0.1
+
+#Deployment
+gunicorn
