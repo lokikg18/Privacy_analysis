@@ -1,3 +1,8 @@
+# Contributors
+
+##Lokik Ganeriwal
+
+
 # Privacy Modeling and Analysis for IoT-Enabled Smart Cities
 
 A comprehensive full-stack software engineering project that combines machine learning, ontology modeling, and privacy analysis for IoT-enabled smart cities. The project implements a complete data pipeline, from data generation to analysis and visualization through an interactive dashboard.
@@ -140,19 +145,11 @@ For a complete list of dependencies, see `requirements.txt`.
 
 MIT License
 
-## Contributors
 
-Lokik Ganeriwal
-
+# Data Analysis
 
 
-############################
-
-## Data Analysis
-
-#############################
-
-The project includes comprehensive data analysis capabilities that generate visualizations and insights about the IoT privacy dataset.
+**The project includes comprehensive data analysis capabilities that generate visualizations and insights about the IoT privacy dataset.**
 
 ### Features Analyzed
 
@@ -242,10 +239,8 @@ data/analysis/
    - Analyze network security patterns
    - Track security incident frequencies
 
-to view the api
-
+##To review the API
 
 http://localhost:8000/docs#/
-
 
 http://localhost:8000/redoc#operation/health_check_health_get
