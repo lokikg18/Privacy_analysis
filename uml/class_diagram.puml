@@ -1,0 +1,68 @@
+@startuml Privacy Analysis System
+
+package "Ontology Handling" {
+    class PrivacyOntologyHandler {
+        - onto_path: Path
+        - world: World
+        - ontology: Ontology
+        + get_personal_data_types(): List[str]
+        + get_risk_levels(): Dict[str, int]
+        + add_personal_data(data_type: str): void
+        + add_risk(risk_name: str, risk_level: int): void
+        + save_ontology(): void
+    }
+}
+
+package "Machine Learning" {
+    class PrivacyRiskClassifier {
+        - classifier: RandomForestClassifier
+        - label_encoders: Dict[str, LabelEncoder]
+        - model_path: Path
+        - _encode_features(X: List[Dict]): ndarray
+        + train(X: List[Dict], y: List[int]): void
+        + predict(X: List[Dict]): List[int]
+        + predict_proba(X: List[Dict]): List[List[float]]
+        + save_model(): void
+        + load_model(): void
+    }
+}
+
+package "Domain Models" {
+    class PersonalData {
+        - id: str
+        - type: str
+        - owner: User
+        - sensitivity_level: int
+    }
+
+    class User {
+        - id: str
+        - name: str
+        - consent_status: Dict[str, bool]
+    }
+
+    class IoTDevice {
+        - id: str
+        - type: str
+        - location: str
+        - data_types: List[str]
+    }
+
+    class PrivacyRisk {
+        - id: str
+        - level: int
+        - description: str
+        - mitigation_strategy: str
+    }
+}
+
+' Relationships
+User "1" -- "*" PersonalData: owns
+IoTDevice "1" -- "*" PersonalData: generates
+PersonalData "*" -- "*" PrivacyRisk: associated with
+PrivacyOntologyHandler ..> PersonalData: manages
+PrivacyOntologyHandler ..> PrivacyRisk: manages
+PrivacyRiskClassifier ..> IoTDevice: analyzes
+PrivacyRiskClassifier ..> PrivacyRisk: predicts
+
+@enduml 

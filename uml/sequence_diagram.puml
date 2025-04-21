@@ -1,0 +1,38 @@
+@startuml Privacy Risk Assessment Sequence
+
+actor User
+participant "Privacy Dashboard" as Dashboard
+participant "Privacy Risk Classifier" as Classifier
+participant "Privacy Ontology Handler" as Ontology
+participant "IoT Device" as Device
+database "Data Store" as DB
+
+User -> Dashboard: Request Risk Assessment
+activate Dashboard
+
+Dashboard -> Device: Collect Device Data
+activate Device
+Device --> Dashboard: Device Information
+deactivate Device
+
+Dashboard -> Ontology: Query Privacy Rules
+activate Ontology
+Ontology --> Dashboard: Privacy Policies
+deactivate Ontology
+
+Dashboard -> Classifier: Request Risk Analysis
+activate Classifier
+Classifier -> DB: Fetch Historical Data
+activate DB
+DB --> Classifier: Historical Risk Data
+deactivate DB
+
+Classifier -> Classifier: Analyze Risk Factors
+Classifier --> Dashboard: Risk Assessment Results
+deactivate Classifier
+
+Dashboard -> Dashboard: Generate Risk Report
+Dashboard --> User: Display Risk Assessment
+deactivate Dashboard
+
+@enduml 

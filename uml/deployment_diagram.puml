@@ -1,0 +1,39 @@
+@startuml Privacy Analysis System Deployment
+
+node "Edge Layer" {
+  [IoT Devices] as devices
+  [Edge Gateway] as gateway
+}
+
+node "Processing Layer" {
+  [Privacy Risk Classifier] as classifier
+  [Data Preprocessor] as preprocessor
+}
+
+node "Knowledge Layer" {
+  database "Ontology Store" as ontology
+  database "Risk Database" as riskdb
+}
+
+node "Application Layer" {
+  [Privacy Dashboard] as dashboard
+  [API Gateway] as api
+}
+
+cloud "Cloud Services" {
+  [Analytics Engine] as analytics
+  [Policy Manager] as policy
+}
+
+devices --> gateway : MQTT/CoAP
+gateway --> preprocessor : HTTPS
+preprocessor --> classifier : Internal
+classifier --> riskdb : Store Results
+classifier --> ontology : Query Rules
+dashboard --> api : REST
+api --> classifier : Request Analysis
+api --> policy : Manage Policies
+policy --> ontology : Update Rules
+analytics --> riskdb : Analyze Data
+
+@enduml 

@@ -1,0 +1,37 @@
+@startuml Privacy Risk Mitigation Process
+
+start
+
+:Data Collection;
+if (Data Type?) then (Personal)
+  :Check User Consent;
+  if (Consent Given?) then (Yes)
+    :Apply Privacy Policy;
+    :Encrypt Data;
+  else (No)
+    :Anonymize Data;
+  endif
+else (Non-Personal)
+  :Process Directly;
+endif
+
+:Store Data;
+:Analyze Privacy Risk;
+
+if (Risk Level?) then (High)
+  :Alert Administrator;
+  :Apply Mitigation Strategy;
+  :Update Privacy Policy;
+else if (Medium) then
+  :Log Risk;
+  :Schedule Review;
+else (Low)
+  :Monitor;
+endif
+
+:Update Risk Assessment;
+:Generate Report;
+
+stop
+
+@enduml 
