@@ -1,6 +1,6 @@
 # Contributors
 
-##Lokik Ganeriwal
+## Lokik Ganeriwal
 
 
 # Privacy Modeling and Analysis for IoT-Enabled Smart Cities
@@ -239,7 +239,7 @@ data/analysis/
    - Analyze network security patterns
    - Track security incident frequencies
 
-##To review the API
+## To review the API
 
 http://localhost:8000/docs#/
 
