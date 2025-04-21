@@ -1,6 +1,6 @@
 # Contributors
 
-## Lokik Ganeriwal
+**Lokik Ganeriwal**
 
 
 # Privacy Modeling and Analysis for IoT-Enabled Smart Cities
